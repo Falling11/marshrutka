@@ -2,25 +2,20 @@ const express = require('express');
 const controller = require('../controllers/auth');
 const router = express.Router();
 
-router.post('/login', controller.login)     // вход в систему по паролю
+router.get('/login', controller.login)     // вход в систему по паролю     // y
 
-// localhost:5000/api/auth/register
-// router.post('/register', controller.register);
+router.patch('/newPassword', controller.newPassword)        // изменение пароля в БД, универсальный метод       // y
 
-router.get('/driverGetInfo', controller.driverGetInfo);
+router.get('/getDriverRouterID', controller.getDriverRouterID)      // получения массива маршрутов по логину        // у
 
-router.get('/driverGetRouteById', controller.driverGetRouteById);
+router.patch('/plusOne', controller.plusOne)        // добавляю пассажира в запись водителя (поштучно!)     // y
 
-router.post('/plusOne', controller.plusOne);
+router.patch('/minusOne', controller.minusOne)      // отнимаю пассажира в запись водителя (поштучно!)     // y
 
-router.post('/minusOne', controller.minusOne);
+router.patch('/deletePassengers', controller.deletePassengers)      // обнуление количества пассажиров в записи водителя по логину      // y
 
-router.post('/deletePassengers', controller.deletePassengers)
+router.patch('/setWorkAuto', controller.setWorkAuto)        // изменение флага водителя в записи (работает/неработает)      // у
 
-router.patch('/getWorkAuto', controller.getWorkAuto)        // изменение флага водителя (работает/неработает)
-
-router.patch('/editGPSDriver', controller.editGPSDriver)        // изменение координат GPS водителя
-
-router.patch('/newPassword', controller.newPassword)        // изменение пароля в БД, универсальный метод
+router.patch('/setGPSDriver', controller.setGPSDriver)        // изменение координат GPS водителя     // у
 
 module.exports = router
