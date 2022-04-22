@@ -37,7 +37,6 @@ module.exports.create = async function (req, res){      // функция для
     }
 }
 
-
 module.exports.disableOrder = async function(req, res){     // теперь представим, что пользователь передумал и отменил заявку
     try{
         await User.findOneAndDelete({_id: ObjectId(req.body._id)})        // удаляю отмененную заявку, она не нужна
@@ -51,7 +50,6 @@ module.exports.disableOrder = async function(req, res){     // теперь пр
         console.log(e)
     }
 }
-
 
 module.exports.deleteOrder = async function(req, res){     // переносим завершенные заявки в новый файл
     const candidate = await User.findOne({_id: ObjectId(req.body._id)})        // нахожу, сохраняю, удаляю
@@ -82,7 +80,6 @@ module.exports.deleteOrder = async function(req, res){     // переносим
         }
     }
 }
-
 
 module.exports.getAllOrderByStop = async function (req, res){       // получение всех заявок по id пользователя
     try{

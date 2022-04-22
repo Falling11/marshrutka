@@ -1,6 +1,6 @@
-const express = require('express');
-const controller = require('../controllers/auth');
-const router = express.Router();
+const express = require('express')
+const controller = require('../controllers/auth')
+const router = express.Router()
 
 router.get('/login', controller.login)     // вход в систему по паролю     // y
 

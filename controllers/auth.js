@@ -25,7 +25,7 @@ module.exports.login = async function (req, res){       // функция для
         }
     } catch (e) {
         res.status(501).json({      // ошибки в серверной части
-            message: "Ошибка сервера. Попробуйте снова",
+            message: "Ошибка сервера. Попробуйте снова"
         })
         console.log(e)
     }
@@ -36,7 +36,7 @@ module.exports.newPassword = async function (req, res){     // функция д
         let candidate = await driverUser.findOne({"name.login": req.query.login})     // получаю объект водителя
         if (candidate === null){
             res.status(404).json({      // если не нашел водителя
-                message: "Запись не найдена",
+                message: "Запись не найдена"
             })
         } else {        // случай, если нашел
             switch (candidate.flag){
