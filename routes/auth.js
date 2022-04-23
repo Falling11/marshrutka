@@ -37,4 +37,7 @@ router.patch('/resetDriver', controller.resetDriver)        // y
 // получение "флага пароля" водителя
 router.get('/getDriverFlag', controller.getDriverFlag)      // у
 
+// принудительная смена "флага пароля" водителя
+router.patch('/setDriverFlag', controller.setDriverFlag)      // у
+
 module.exports = router

@@ -316,3 +316,28 @@ module.exports.getDriverFlag = async function (req, res){
         console.log(e)
     }
 }
+
+// функция для принудительноой смены "флага пароля" водителя
+module.exports.setDriverFlag = async function (req, res){       
+    try{
+        // нашли запись по логину, выделили массив с маршрутами
+        var candidate = await driverUser.findOne({"name.login": req.query.login})      
+        if (candidate === null){        // если записи нет, вернет null
+            res.status(404).json({
+                message: "Запись не найдена"
+            })
+        } else {
+            // меняю флаг
+            candidate.flag = req.query.flag
+            await candidate.save()      // сохраняю
+            res.status(201).json({      // все ок, если ок
+                massage: "Флаг изменен"
+            })
+        }
+    } catch(e) {
+        res.status(501).json({      // ошибки в серверной части
+            message: "Ошибка сервера. Попробуйте снова"
+        })
+        console.log(e)
+    }
+}
