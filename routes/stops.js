@@ -2,6 +2,7 @@ const express = require('express')
 const controller = require('../controllers/stops')
 const router = express.Router()
 
+
 // вывод в массиве всех существующих остановок
 router.get('/getAllExistingStops', controller.getAllExistingStops)      // у   
 

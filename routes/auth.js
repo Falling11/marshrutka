@@ -2,6 +2,7 @@ const express = require('express')
 const controller = require('../controllers/auth')
 const router = express.Router()
 
+
 // вход в систему по паролю
 router.get('/login', controller.login)      // y
 
