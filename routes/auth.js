@@ -2,20 +2,39 @@ const express = require('express')
 const controller = require('../controllers/auth')
 const router = express.Router()
 
-router.get('/login', controller.login)     // вход в систему по паролю     // y
+// вход в систему по паролю
+router.get('/login', controller.login)      // y
 
-router.patch('/newPassword', controller.newPassword)        // изменение пароля в БД, универсальный метод       // y
+// изменение пароля в БД, универсальный метод
+router.patch('/newPassword', controller.newPassword)        // y
 
-router.get('/getDriverRouterID', controller.getDriverRouterID)      // получения массива маршрутов по логину        // у
+// получение массива маршрутов по логину
+router.get('/getDriverRouterID', controller.getDriverRouterID)      // у
 
-router.patch('/plusOne', controller.plusOne)        // добавляю пассажира в запись водителя (поштучно!)     // y
+// добавляю пассажира в запись водителя (поштучно!)
+router.patch('/plusOne', controller.plusOne)        // y
 
-router.patch('/minusOne', controller.minusOne)      // отнимаю пассажира в запись водителя (поштучно!)     // y
+// отнимаю пассажира в запись водителя (поштучно!)
+router.patch('/minusOne', controller.minusOne)      // y
 
-router.patch('/deletePassengers', controller.deletePassengers)      // обнуление количества пассажиров в записи водителя по логину      // y
+// обнуление количества пассажиров в записи водителя по логину
+router.patch('/deletePassengers', controller.deletePassengers)      // y
 
-router.patch('/setWorkAuto', controller.setWorkAuto)        // изменение флага водителя в записи (работает/неработает)      // у
+// изменение флага водителя в записи (работает/неработает)
+router.patch('/setWorkAuto', controller.setWorkAuto)        // у
 
-router.patch('/setGPSDriver', controller.setGPSDriver)        // изменение координат GPS водителя     // у
+// изменение координат GPS водителя
+router.patch('/setGPSDriver', controller.setGPSDriver)      // у
+
+// обнуление записи водителя:
+//  -маршрутов следования
+//  -маршрута работы
+//  -следующей остановки
+//  -количества пассажиров
+//  -флага работы маршрутки
+router.patch('/resetDriver', controller.resetDriver)        // y
+
+// получение "флага пароля" водителя
+router.get('/getDriverFlag', controller.getDriverFlag)      // у
 
 module.exports = router
