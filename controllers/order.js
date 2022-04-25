@@ -66,6 +66,32 @@ module.exports.getNumberOrderByStopsOnRoute = async function (req, res){
     }
 }
 
+// функция для получения начала и конца пути заявки для маршрута
+module.exports.getAllOrderByRoute = async function (req, res){
+    try{
+        // ищу заявки по маршруту, заношу все в объект
+        const requests_on_request = await User.find({routeID: req.query.routeID})
+        // массив для хранения данных
+        let newArray = new Array()
+        // прогоняю все объекты
+        for (let key in requests_on_request) {
+            // создаю новый объект с определенными полями
+            const newObject = new Object({
+                start: requests_on_request[key].start,
+                stop: requests_on_request[key].stop
+            })
+            // добавляю в массив созданный объект
+            newArray.push(newObject)
+        }
+        res.status(201).json(newArray)
+    } catch (e) {       // ошибки в серверной части
+        res.status(501).json({
+            message: "Ошибка обработки заявки. Попробуйте снова"
+        })
+        console.log(e)
+    }
+}
+
 // функция для отмены заявки (полное удаление из БД)
 module.exports.disableOrder = async function(req, res){     
     try{
