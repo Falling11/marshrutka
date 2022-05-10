@@ -28,7 +28,6 @@ router.patch('/setWorkAuto', controller.setWorkAuto)        // у
 router.patch('/setGPSDriver', controller.setGPSDriver)      // у
 
 // обнуление записи водителя:
-//  -маршрутов следования
 //  -маршрута работы
 //  -следующей остановки
 //  -количества пассажиров

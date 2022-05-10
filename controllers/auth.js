@@ -270,12 +270,10 @@ module.exports.resetDriver = async function (req,res){
             })
         } else {
             // обнуляю данные:
-            //  -маршрутов следования
             //  -маршрута работы
             //  -следующей остановки
             //  -количества пассажиров
             //  -флага работы маршрутки
-            candidate.routeID = []
             candidate.route_work = ""
             candidate.current_stop = ""
             candidate.quanPassengers = 0
