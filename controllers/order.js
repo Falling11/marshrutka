@@ -96,7 +96,7 @@ module.exports.getAllOrderByRoute = async function (req, res){
 module.exports.disableOrder = async function(req, res){     
     try{
         // нахожу и удаляю
-        if (!(await User.findOneAndDelete({_id: ObjectId(req.body._id)}))){
+        if (!(await User.findOneAndDelete({_id: ObjectId(req.query._id)}))){
             // если удаление не произошло
             res.status(404).json({
                 message: "Заявка не найдена"
@@ -120,7 +120,7 @@ module.exports.disableOrder = async function(req, res){
 module.exports.deleteOrder = async function(req, res){     
     try{
         // нахожу нужную заявку по _id
-        const candidate = await User.findOne({_id: ObjectId(req.body._id)})        
+        const candidate = await User.findOne({_id: ObjectId(req.query._id)})        
         if (candidate === null){        // если заявки нет, вернет null
             res.status(404).json({
                 message: "Заявка не найдена"
@@ -135,7 +135,7 @@ module.exports.deleteOrder = async function(req, res){
                 waitAuto: false
             })
             // удаляю заявку в файле с активными заявками
-            await User.findOneAndDelete({_id: ObjectId(req.body._id)})            
+            await User.findOneAndDelete({_id: ObjectId(req.query._id)})            
             // сохраняю файл с завершенными заявками
             await newUser.save()
             res.status(201).json({
