@@ -336,3 +336,24 @@ module.exports.setDriverFlag = async function (req, res){
         console.log(e)
     }
 }
+
+// функция для изменения текущей остановки движения в записи водителя
+module.exports.setCurrentStop = async function (req, res){      
+    try{
+        // нахожу запись, меняю флаг
+        if (!(await driverUser.findOneAndUpdate({"name.login": req.query.login}, { $set: {"current_stop": req.query.current_stop}}))){
+            res.status(404).json({      // если не нашел водителя
+                message: "Запись не найдена"
+            })
+        } else {
+            res.status(201).json({      // все ок, если ок
+                message: "Остановка изменена"
+            })
+        }
+    } catch(e) {
+        res.status(501).json({      // ошибки в серверной части
+            message: "Ошибка сервера. Попробуйте снова"
+        })
+        console.log(e)
+    }
+}
