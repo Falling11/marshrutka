@@ -10,7 +10,7 @@ router.post('/login', controller.login)      // y
 router.patch('/newPassword', controller.newPassword)        // y
 
 // получение массива маршрутов по логину
-router.get('/getDriverRouterID', controller.getDriverRouterID)      // у
+router.post('/getDriverRouterID', controller.getDriverRouterID)      // у
 
 // добавляю пассажира в запись водителя (поштучно!)
 router.patch('/plusOne', controller.plusOne)        // y
@@ -35,7 +35,7 @@ router.patch('/setGPSDriver', controller.setGPSDriver)      // у
 router.patch('/resetDriver', controller.resetDriver)        // y
 
 // получение "флага пароля" водителя
-router.get('/getDriverFlag', controller.getDriverFlag)      // у
+router.post('/getDriverFlag', controller.getDriverFlag)      // у
 
 // принудительная смена "флага пароля" водителя
 router.patch('/setDriverFlag', controller.setDriverFlag)      // у
