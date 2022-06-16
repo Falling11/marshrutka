@@ -8,13 +8,13 @@ const router = express.Router()
 router.post('/createOrder', controller.createOrder)     // y
 
 // получение всех заявок на маршруте
-router.post('/getAllOrderByRoute', controller.getAllOrderByRoute)        // y
+router.get('/getAllOrderByRoute', controller.getAllOrderByRoute)        // y
 
 // получение количества заявок на остановке по маршруту
-router.post('/getNumberOrderByStopsOnRoute', controller.getNumberOrderByStopsOnRoute)        // y
+router.get('/getNumberOrderByStopsOnRoute', controller.getNumberOrderByStopsOnRoute)        // y
 
 // получение начала и конца пути заявки на маршруте
-router.post('/getAllOrderByRoute', controller.getAllOrderByRoute)        // y
+router.get('/getAllOrderByRoute', controller.getAllOrderByRoute)        // y
 
 // отмена заявки, полное удаление
 router.post('/disableOrder', controller.disableOrder)       // y

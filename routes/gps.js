@@ -3,7 +3,7 @@ const controller = require('../controllers/gps')
 const router = express.Router()
 
 
-router.post('/getJpsByStops', controller.getJpsByStops)
+router.get('/getJpsByStops', controller.getJpsByStops)
 
 
 router.post('/getGpsDriver',controller.getGpsDriver)
