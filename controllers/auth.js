@@ -357,3 +357,24 @@ module.exports.setCurrentStop = async function (req, res){
         console.log(e)
     }
 }
+
+// функция для изменения рабочего маршрута
+module.exports.setRouteWork = async function (req, res){      
+    try{
+        // нахожу запись, меняю маршрут
+        if (!(await driverUser.findOneAndUpdate({"name.login": req.query.login}, { $set: {"route_work": req.query.route_work}}))){
+            res.status(404).json({      // если не нашел водителя
+                message: "Запись не найдена"
+            })
+        } else {
+            res.status(201).json({      // все ок, если ок
+                message: "Рабочий маршрут изменен"
+            })
+        }
+    } catch(e) {
+        res.status(501).json({      // ошибки в серверной части
+            message: "Ошибка сервера. Попробуйте снова"
+        })
+        console.log(e)
+    }
+}

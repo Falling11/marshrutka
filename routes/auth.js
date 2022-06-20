@@ -43,4 +43,7 @@ router.patch('/setDriverFlag', controller.setDriverFlag)      // у
 // изменение флага водителя в записи (работает/неработает)
 router.patch('/setCurrentStop', controller.setCurrentStop)        // у
 
+// изменение рабочего маршрута водителя в записи
+router.patch('/setRouteWork', controller.setRouteWork)        // у
+
 module.exports = router
