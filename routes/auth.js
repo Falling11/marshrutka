@@ -47,6 +47,6 @@ router.patch('/setCurrentStop', controller.setCurrentStop)        // у
 router.patch('/setRouteWork', controller.setRouteWork)        // у
 
 // получение текущей остановки водителя
-router.get('/getCurrentStop', controller.getDriverFlag)      // у
+router.get('/getCurrentStop', controller.getCurrentStop)      // у
 
 module.exports = router

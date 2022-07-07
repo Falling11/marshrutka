@@ -389,7 +389,7 @@ module.exports.getCurrentStop = async function (req, res){
                 message: "Запись не найдена"
             })
         } else {
-            // если найдет запись, возвращает флаг
+            // если найдет запись, возвращает текущую остановку
             res.status(201).json(candidate)
         }
     } catch(e) {
