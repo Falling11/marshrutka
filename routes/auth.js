@@ -40,10 +40,13 @@ router.get('/getDriverFlag', controller.getDriverFlag)      // у
 // принудительная смена "флага пароля" водителя
 router.patch('/setDriverFlag', controller.setDriverFlag)      // у
 
-// изменение флага водителя в записи (работает/неработает)
+// изменение текущей остановки водителя
 router.patch('/setCurrentStop', controller.setCurrentStop)        // у
 
 // изменение рабочего маршрута водителя в записи
 router.patch('/setRouteWork', controller.setRouteWork)        // у
+
+// получение текущей остановки водителя
+router.get('/getCurrentStop', controller.getDriverFlag)      // у
 
 module.exports = router

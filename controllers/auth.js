@@ -378,3 +378,24 @@ module.exports.setRouteWork = async function (req, res){
         console.log(e)
     }
 }
+
+// функция для получения текущей остановки по login водителя
+module.exports.getCurrentStop = async function (req, res){       
+    try{
+        // нашли запись по логину, выделили массив с маршрутами
+        const candidate = (await driverUser.findOne({"name.login": req.query.login})).current_stop       
+        if (candidate === null){        // если записи нет, вернет null
+            res.status(404).json({
+                message: "Запись не найдена"
+            })
+        } else {
+            // если найдет запись, возвращает флаг
+            res.status(201).json(candidate)
+        }
+    } catch(e) {
+        res.status(501).json({      // ошибки в серверной части
+            message: "Ошибка сервера. Попробуйте снова"
+        })
+        console.log(e)
+    }
+}
